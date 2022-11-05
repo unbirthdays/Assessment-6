@@ -18,3 +18,12 @@ test('Title shows up when page loads', async () => {
     const displayed = await title.isDisplayed()
     expect(displayed).toBe(true)
 })
+
+test('Clicking draw button displays choices', async () => {
+    slksdjflkdj
+})
+
+
+// test('Clicking add to duo button displays the player duo', async () => {
+//     slfjsdkljf
+// })
