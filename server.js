@@ -1,10 +1,23 @@
 const express = require('express')
 const path = require('path')
+const { send } = require('process')
 const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
 
 app.use(express.json())
+
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+})
+
+app.get("/styles", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.css"))
+})
+
+app.get("/js", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.js"))
+})
 
 app.get('/api/robots', (req, res) => {
     try {
