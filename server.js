@@ -7,16 +7,28 @@ const {shuffleArray} = require('./utils')
 
 app.use(express.json())
 
+// include and initialize the rollbar library with your access token
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: '44252cfaf61345baa744376494be77bc',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+})
+
+// record a generic message and send it to Rollbar
+rollbar.log('Hello world!')
+
+
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, "/assessment-qa-devops/public/index.html"));
 })
 
 app.get("/styles", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.css"))
+    res.sendFile(path.join(__dirname, "/asssessment-qa-devops/public/index.css"))
 })
 
 app.get("/js", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.js"))
+    res.sendFile(path.join(__dirname, "/assessment-qa-devops/public/index.js"))
 })
 
 app.get('/api/robots', (req, res) => {
