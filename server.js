@@ -20,6 +20,7 @@ rollbar.log('Hello world!')
 
 
 app.get("/", function(req, res) {
+    rollbar.info('User hit the home page successfully.');
     res.sendFile(path.join(__dirname, "./public/index.html"));
 })
 
@@ -35,6 +36,7 @@ app.get('/api/robots', (req, res) => {
     try {
         res.status(200).send(botsArr)
     } catch (error) {
+        rollbar.error('Error getting bots.');
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
     }
@@ -47,6 +49,7 @@ app.get('/api/robots/five', (req, res) => {
         let compDuo = shuffled.slice(6, 8)
         res.status(200).send({choices, compDuo})
     } catch (error) {
+        rollbar.error('Error getting five bots.');
         console.log('ERROR GETTING FIVE BOTS', error)
         res.sendStatus(400)
     }
@@ -78,6 +81,7 @@ app.post('/api/duel', (req, res) => {
             res.status(200).send('You won!')
         }
     } catch (error) {
+        rollbar.error('Error dueling.');
         console.log('ERROR DUELING', error)
         res.sendStatus(400)
     }
