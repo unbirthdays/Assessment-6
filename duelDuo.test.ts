@@ -29,12 +29,12 @@ test('Clicking draw button displays choices', async () => {
 })
 
 
-// test('Clicking add to duo button displays the player duo', async () => {
-    // await driver.sleep(1500)
-    // await driver.findElement(By.id('draw')).click()
-    // await driver.findElement(By.css('.bot-btn')).click()
-    // const playerDuo = await driver.findElement(By.id('player-duo'))
-    // const displayed = await playerDuo.isDisplayed();
-    // expect(displayed).toBe(true);
-    // await driver.sleep(1500);
-// })
+test('Clicking add to duo button displays the player duo', async () => {
+    await driver.sleep(1500)
+    await driver.findElement(By.id('draw')).click()
+    await driver.findElement(By.css('.bot-btn')).click()
+    const playerDuo = await driver.findElement(By.id('player-duo'))
+    const displayed = await playerDuo.isDisplayed();
+    expect(displayed).toBe(true);
+    await driver.sleep(1500);
+})
